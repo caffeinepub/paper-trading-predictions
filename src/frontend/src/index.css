@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/assets/fonts/Satoshi.woff2") format("woff2");
+  font-weight: 300 700;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+    /* Dark trading theme */
+    --background: 0.115 0.018 240;
+    --foreground: 0.93 0.015 240;
+    --card: 0.155 0.02 240;
+    --card-foreground: 0.93 0.015 240;
+    --popover: 0.155 0.02 240;
+    --popover-foreground: 0.93 0.015 240;
+    --primary: 0.6 0.18 260;
+    --primary-foreground: 0.98 0 0;
+    --secondary: 0.22 0.025 240;
+    --secondary-foreground: 0.93 0.015 240;
+    --muted: 0.2 0.022 240;
+    --muted-foreground: 0.68 0.025 240;
+    --accent: 0.22 0.028 240;
+    --accent-foreground: 0.93 0.015 240;
+    --destructive: 0.6 0.22 25;
+    --destructive-foreground: 0.98 0 0;
+    --border: 0.22 0.028 240;
+    --input: 0.22 0.028 240;
+    --ring: 0.6 0.18 260;
+    --chart-1: 0.6 0.18 260;
+    --chart-2: 0.7 0.18 145;
+    --chart-3: 0.6 0.22 25;
+    --chart-4: 0.55 0.22 295;
+    --chart-5: 0.7 0.15 60;
+    --sidebar: 0.155 0.02 240;
+    --sidebar-foreground: 0.93 0.015 240;
+    --sidebar-primary: 0.6 0.18 260;
+    --sidebar-primary-foreground: 0.98 0 0;
+    --sidebar-accent: 0.22 0.025 240;
+    --sidebar-accent-foreground: 0.93 0.015 240;
+    --sidebar-border: 0.22 0.028 240;
+    --sidebar-ring: 0.6 0.18 260;
+    /* Trading specific */
+    --positive: 0.7 0.18 145;
+    --negative: 0.6 0.22 25;
+    --violet: 0.55 0.22 295;
+    --blue-accent: 0.6 0.18 260;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Satoshi", "Inter", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: oklch(0.3 0.025 240);
+    border-radius: 2px;
+  }
+}
+
+@layer utilities {
+  .bg-positive {
+    background-color: oklch(var(--positive));
+  }
+  .bg-negative {
+    background-color: oklch(var(--negative));
+  }
+  .text-positive {
+    color: oklch(var(--positive));
+  }
+  .text-negative {
+    color: oklch(var(--negative));
+  }
+  .text-violet {
+    color: oklch(var(--violet));
+  }
+  .text-blue-accent {
+    color: oklch(var(--blue-accent));
+  }
+  .border-blue-accent {
+    border-color: oklch(var(--blue-accent));
+  }
+  .bg-blue-accent {
+    background-color: oklch(var(--blue-accent));
+  }
+
+  .card-glass {
+    background: oklch(var(--card));
+    border: 1px solid oklch(var(--border));
+    border-radius: var(--radius);
+    box-shadow: 0 2px 16px oklch(0.05 0 0 / 0.6);
+  }
+
+  .pulse-yellow {
+    animation: pulseYellow 1.5s ease-in-out infinite;
+  }
+
+  @keyframes pulseYellow {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.4;
+    }
+  }
+}
